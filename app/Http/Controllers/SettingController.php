@@ -19,14 +19,32 @@ class SettingController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|min:3|max:30',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:5',
+        ]);
+
+        $user = auth()->user()->update([
+            'name' => $request->name,
+        ]);
+
+        if ($user) {
+            return redirect()->route('user.index')->with(['success' => 'Success Add Data!']);
+        } else {
+            return redirect()->route('user.index')->with(['error' => 'Failed Add Data!']);
+        }
+    }
+
+    public function password()
+    {
+        return view('setting.password')->with(['title' => $this->title]);
+    }
+
+    public function passwordUpdate(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|min:3|max:30',
         ]);
 
         $user = User::create([
             'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
         ]);
 
         if ($user) {

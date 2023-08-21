@@ -26,8 +26,8 @@
                 <a href="javascript:void(0);" class="nav-link has-dropdown"><i class="fas fa-cogs"></i>
                     <span>Settings</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link {{ $title == 'Profile' ? 'active' : '' }}"
-                            href="bootstrap-alert.html">Profile</a></li>
+                    <li class="{{ $title == 'Setting' ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('setting.profile') }}">Profile</a></li>
                 </ul>
             </li>
             <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i>
