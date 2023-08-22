@@ -18,12 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('home');
+    return redirect()->route('login');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::resource('/user', UserController::class);
