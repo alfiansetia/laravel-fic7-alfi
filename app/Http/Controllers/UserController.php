@@ -18,7 +18,7 @@ class UserController extends Controller
         if ($request->filled('search')) {
             $query->orWhere('email', 'like', "%$request->search%")->orWhere('name', 'like', "%$request->search%");
         }
-        $data = $query->latest()->paginate(10)->withQueryString();
+        $data = $query->latest()->paginate(5)->withQueryString();
         return view('user.index', compact('data'))->with(['title' => $this->title]);
     }
 

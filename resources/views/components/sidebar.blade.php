@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{ route('home') }}">Stisla</a>
+            <a href="{{ route('home') }}">{{ env('APP_NAME') }}</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="{{ route('home') }}">St</a>
@@ -30,8 +30,7 @@
                             href="{{ route('setting.profile') }}">Profile</a></li>
                 </ul>
             </li>
-            <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i>
-                    <span>Credits</span></a></li>
+
         </ul>
 
         <div class="mt-4 mb-4 p-3 hide-sidebar-mini">

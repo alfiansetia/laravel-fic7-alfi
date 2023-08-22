@@ -26,9 +26,9 @@ class SettingController extends Controller
         ]);
 
         if ($user) {
-            return redirect()->route('user.index')->with(['success' => 'Success Add Data!']);
+            return redirect()->route('setting.profile')->with(['success' => 'Success Update Profile!']);
         } else {
-            return redirect()->route('user.index')->with(['error' => 'Failed Add Data!']);
+            return redirect()->route('setting.profile')->with(['error' => 'Failed Update Profile!']);
         }
     }
 
