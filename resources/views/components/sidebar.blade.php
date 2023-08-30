@@ -16,6 +16,12 @@
                     <li><a class="nav-link" href="{{ route('home') }}">Ecommerce Dashboard</a></li>
                 </ul>
             </li>
+            <li class="menu-header">Transaction</li>
+            <li class="{{ $title == 'Orders' ? 'active' : '' }}">
+                <a class="nav-link active" href="{{ route('orders.index') }}">
+                    <i class="fas fa-random"></i> <span>Orders</span>
+                </a>
+            </li>
             <li class="menu-header">Master Data</li>
             <li class="{{ $title == 'User' ? 'active' : '' }}">
                 <a class="nav-link active" href="{{ route('user.index') }}">

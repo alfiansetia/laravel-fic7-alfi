@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -32,5 +33,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('/setting/profile', [SettingController::class, 'profileUpdate'])->name('setting.profile.update');
     Route::get('/setting/password', [SettingController::class, 'password'])->name('setting.password');
     Route::post('/setting/password', [SettingController::class, 'passwordUpdate'])->name('setting.password.update');
+
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 
 });
