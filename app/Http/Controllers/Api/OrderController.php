@@ -17,6 +17,11 @@ class OrderController extends Controller
         return Order::where('user_id', auth()->id())->get();
     }
 
+    public function show(Order $orders)
+    {
+        return $orders->load('items');
+    }
+
 
     public function store(Request $request)
     {

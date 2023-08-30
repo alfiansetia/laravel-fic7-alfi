@@ -31,6 +31,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::apiResource('categories', CategoryController::class)->except(['index', 'show']);
 
     Route::get('orders', [OrderController::class, 'index']);
+
+    Route::get('orders/{orders}', [OrderController::class, 'show']);
     
     Route::post('orders', [OrderController::class, 'store']);
 
