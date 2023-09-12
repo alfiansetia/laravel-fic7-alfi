@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CallbackController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,5 +41,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 });
 
 Route::apiResource('categories', CategoryController::class)->only(['index', 'show']);
+Route::apiResource('products', ProductController::class)->only(['index', 'show']);
 
 Route::post('midtrans/notification/handling', [CallbackController::class, 'callback']);
