@@ -15,10 +15,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $categoryId = $request->input('category_id');
-        $products = Product::when(
-            $categoryId,
-            fn ($query, $categoryId) => $query->categoryId($categoryId)
-        )->paginate()->load('category');
+        $products = Product::with('category')->whereRelation('category', 'category_id', '=', $categoryId)->paginate();
         return ProductResource::collection($products);
     }
 
