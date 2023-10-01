@@ -14,8 +14,11 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $categoryId = $request->input('category_id');
-        $products = Product::with('category')->whereRelation('category', 'category_id', '=', $categoryId)->paginate();
+        $data = Product::query();
+        if ($request->filled('category_id')) {
+            $data->whereRelation('category', 'category_id', '=', $request->category_id);
+        }
+        $products = $data->with('category', 'user')->paginate();
         return ProductResource::collection($products);
     }
 
